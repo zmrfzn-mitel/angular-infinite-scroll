@@ -1,7 +1,5 @@
-<cdk-virtual-scroll-viewport
-  itemSize="100"
-  class="fact-scroll-viewport">
-  <li *cdkVirtualFor="let fact of dataSource">
+<cdk-virtual-scroll-viewport itemSize="100" class="fact-scroll-viewport">
+  <!-- <li *cdkVirtualFor="let fact of dataSource">
 
     <div *ngIf="fact" class="fact-item">
       <div class="fact-date">{{ fact.year }}</div>
@@ -11,5 +9,28 @@
       Loading ...
     </div>
 
-  </li>
+  </li> -->
+  <ng-container *cdkVirtualFor="let fact of dataSource;let index = index">
+
+    <div class="viewport-card"><small> item :{{index}} </small>
+      <div *ngIf="fact" class="fact-item">
+        <div class="fact-date">{{ fact.year }}</div>
+        <div class="fact-text">{{ fact.text }}</div>
+      </div>
+      <div *ngIf="!fact">
+        Loading ...
+      </div>
+    </div>
+    <!-- <p-card styleClass="cux-card-container">
+        <p-header *ngIf="fact.year" styleClass="cux-card-header">
+          {{fact.year}}
+        </p-header>
+        <span class="cux-card-content">          
+          <div class="fact-text">{{ fact.text }}</div>
+        </span>
+      </p-card> -->
+
+
+  </ng-container>
 </cdk-virtual-scroll-viewport>
+<h3 *ngIf="dataSource.loading" style="color: aquamarine;"><span>loading...</span></h3>

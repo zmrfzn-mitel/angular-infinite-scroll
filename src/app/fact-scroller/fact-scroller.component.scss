@@ -33,3 +33,51 @@ cdk-virtual-scroll-viewport {
     list-style: none;
   }
 }
+
+.viewport-card {
+  border: 1px solid black;
+  border-radius: 3px;
+  margin: 1px 0px 2px 0px;
+  padding: 5px;
+}
+
+:host {
+  ::ng-deep .cux-card-container {
+      box-shadow: 0 2px 4px 0 rgba(55, 72, 99, 0.2);        
+      border: solid 1px gray;
+      border-radius: 5px;
+      padding: 0px 20px;
+  margin: 5px 0;
+
+      .ui-card-header{
+          margin-top: 35px;
+          display: flex;
+          justify-content: center;            
+      }
+      .ui-card-body{
+          display: flex;
+          flex-direction: column;
+          padding-top:0px;                
+          .ui-card-content{
+              margin: 20px 0px;
+          }
+          .ui-card-footer{                
+              border-top: rgb(160, 136, 136);
+        
+              // padding: 5px 20px;
+              .cux-card-footer{
+                  display: flex;
+                  justify-content: right;
+                  .card-footer-button{
+                      display: flex;
+                      float: right;
+                      .cux-button{
+                          margin: 10px;
+                      }
+                  }
+              }
+
+          }            
+      }
+  }
+}
